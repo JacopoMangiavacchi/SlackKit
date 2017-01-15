@@ -152,8 +152,8 @@ internal class Event {
     let comment: Comment?
     let user: User?
     let file: File?
-    let message: Message?
-    let nestedMessage: Message?
+    let message: SlackMessage?
+    let nestedMessage: SlackMessage?
     let itemUser: String?
     let item: Item?
     let dndStatus: DoNotDisturbStatus?
@@ -191,8 +191,8 @@ internal class Event {
         item = Item(item: event["item"] as? [String: Any])
         subteam = UserGroup(userGroup: event["subteam"] as? [String: Any])
         subteamID = event["subteam_id"] as? String
-        message = Message(dictionary: event)
-        nestedMessage = Message(dictionary: event["message"] as? [String: Any])
+        message = SlackMessage(dictionary: event)
+        nestedMessage = SlackMessage(dictionary: event["message"] as? [String: Any])
         profile = CustomProfile(profile: event["profile"] as? [String: Any])
         file = File(id: event["file"] as? String)
         

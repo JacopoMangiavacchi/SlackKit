@@ -39,7 +39,7 @@ public struct Channel {
     internal(set) public var purpose: Topic?
     internal(set) public var isMember: Bool?
     public var lastRead: String?
-    internal(set) public var latest: Message?
+    internal(set) public var latest: SlackMessage?
     public var unread: Int?
     public var unreadCountDisplay: Int?
     internal(set) public var hasPins: Bool?
@@ -47,7 +47,7 @@ public struct Channel {
     // Client use
     internal(set) public var pinnedItems = [Item]()
     internal(set) public var usersTyping = [String]()
-    internal(set) public var messages = [String: Message]()
+    internal(set) public var messages = [String: SlackMessage]()
     
     internal init(channel: [String: Any]?) {
         id = channel?["id"] as? String
@@ -72,9 +72,9 @@ public struct Channel {
         members = channel?["members"] as? [String]
         
         if let latestMesssageDictionary = channel?["latest"] as? [String: Any] {
-            latest = Message(dictionary: latestMesssageDictionary)
+            latest = SlackMessage(dictionary: latestMesssageDictionary)
         } else {
-            latest = Message(ts: channel?["latest"] as? String)
+            latest = SlackMessage(ts: channel?["latest"] as? String)
         }
     }
     

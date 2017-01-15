@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public final class Message: Equatable {
+public final class SlackMessage: Equatable {
     
     public let type = "message"
     public let subtype: String?
@@ -95,7 +95,7 @@ public final class Message: Equatable {
         file = nil
     }
     
-    public static func ==(lhs: Message, rhs: Message) -> Bool {
+    public static func ==(lhs: SlackMessage, rhs: SlackMessage) -> Bool {
         return lhs.ts == rhs.ts && lhs.user == rhs.user && lhs.text == rhs.text
     }
 }

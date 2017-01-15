@@ -26,7 +26,7 @@ import Foundation
 public struct History {
     
     internal(set) public var latest: Date?
-    internal(set) public var messages = [Message]()
+    internal(set) public var messages = [SlackMessage]()
     public let hasMore: Bool?
     
     internal init(history: [String: Any]?) {
@@ -35,7 +35,7 @@ public struct History {
         }
         if let msgs = history?["messages"] as? [[String: Any]] {
             for message in msgs {
-                messages.append(Message(dictionary: message))
+                messages.append(SlackMessage(dictionary: message))
             }
         }
         hasMore = history?["has_more"] as? Bool

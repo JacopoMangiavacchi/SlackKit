@@ -37,7 +37,7 @@ public class SlackClient {
     internal(set) public var userGroups = [String: UserGroup]()
     internal(set) public var bots = [String: Bot]()
     internal(set) public var files = [String: File]()
-    internal(set) public var sentMessages = [String: Message]()
+    internal(set) public var sentMessages = [String: SlackMessage]()
     
     //MARK: - Delegates
     public weak var connectionEventsDelegate: ConnectionEventsDelegate?
@@ -139,7 +139,7 @@ public class SlackClient {
         message.removeValue(forKey: "id")
         message["ts"] = ts
         message["user"] = self.authenticatedUser?.id
-        sentMessages[ts] = Message(dictionary: message)
+        sentMessages[ts] = SlackMessage(dictionary: message)
     }
     
     //MARK: - Client setup

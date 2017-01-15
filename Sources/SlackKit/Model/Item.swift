@@ -26,7 +26,7 @@ public struct Item: Equatable {
     public let type: String?
     public let ts: String?
     public let channel: String?
-    public let message: Message?
+    public let message: SlackMessage?
     public let file: File?
     public let comment: Comment?
     public let fileCommentID: String?
@@ -35,7 +35,7 @@ public struct Item: Equatable {
         type = item?["type"] as? String
         ts = item?["ts"] as? String
         channel = item?["channel"] as? String
-        message = Message(dictionary: item?["message"] as? [String: Any])
+        message = SlackMessage(dictionary: item?["message"] as? [String: Any])
         
         // Comment and File can come across as Strings or Dictionaries
         if let commentDictionary = item?["comment"] as? [String: Any] {
