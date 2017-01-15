@@ -34,6 +34,7 @@ internal enum EventType: String {
     case channelArchive = "channel_archive"
     case channelUnarchive = "channel_unarchive"
     case channelHistoryChanged = "channel_history_changed"
+    case desktopNotification = "desktop_notification"
     case dndUpdated = "dnd_updated"
     case dndUpatedUser = "dnd_updated_user"
     case imCreated = "im_created"

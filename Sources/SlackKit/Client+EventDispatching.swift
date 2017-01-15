@@ -39,6 +39,9 @@ internal extension SlackClient {
             } else {
                 messageReceived(event)
             }
+        case .desktopNotification:
+            print("Desktop Notification")
+            print(anEvent)
         case .userTyping:
             userTyping(event)
         case .channelMarked, .imMarked, .groupMarked:
@@ -157,6 +160,7 @@ internal extension SlackClient {
             print("Error: \(anEvent)")
         case .unknown:
             print("Unsupported event of type: \(anEvent["type"] ?? "No Type Information")")
+            print(anEvent)
         }
     }
     
