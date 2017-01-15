@@ -43,6 +43,10 @@ internal extension SlackClient {
         messageEventsDelegate?.sent(message, client: self)
     }
     
+    func messageNotified(_ content: String, channel: String) {
+        messageEventsDelegate?.notified(content, channel: channel, client:self)
+    }
+
     func messageReceived(_ event: Event) {
         guard let channel = event.channel, let message = event.message, let id = channel.id, let ts = message.ts else {
             return

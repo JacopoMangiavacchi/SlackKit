@@ -32,6 +32,7 @@ public protocol MessageEventsDelegate: class {
     func received(_ message: Message, client: SlackClient)
     func changed(_ message: Message, client: SlackClient)
     func deleted(_ message: Message?, client: SlackClient)
+    func notified(_ content: String, channel: String, client: SlackClient)
 }
 
 public protocol ChannelEventsDelegate: class {

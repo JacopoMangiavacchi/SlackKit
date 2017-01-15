@@ -40,8 +40,9 @@ internal extension SlackClient {
                 messageReceived(event)
             }
         case .desktopNotification:
-            print("Desktop Notification")
-            print(anEvent)
+            if let content = anEvent["content"] as? String, let channel = anEvent["channel"] as? String {
+                messageNotified(content, channel: channel)
+            }
         case .userTyping:
             userTyping(event)
         case .channelMarked, .imMarked, .groupMarked:
